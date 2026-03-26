@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# KI-Sichtbarkeits-Check für lokale Unternehmen
 
-## Getting Started
+Dieses Projekt ist eine **Next.js Web-App** (React) zur Überprüfung der KI-Sichtbarkeit lokaler Unternehmen.  
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Eingabe von Unternehmensinformationen (Name, Branche, Standort)  
+- API-Route (`/api/openai/route.js`) zum Senden von Prompts an OpenAI  
+- Analyse der KI-Sichtbarkeit **über Web Search mit OpenAI**  
+- Die Antwort enthält einen **AI Visibility Score (0-10)** und **3-5 Tipps**, um die Sichtbarkeit zu erhöhen  
+- Darstellung der Ergebnisse im Frontend, jeder Tipp in einer neuen Zeile  
+- Styling mit **TailwindCSS**  
+- Next.js für Frontend und Backend  
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+> Hinweis: Der bereitgestellte OpenAI API Key unterstützt standardmäßig kein Web Search über Modelle wie gpt-4o-search-preview oder gpt-4o-mini-search-preview.
+Deshalb wird gpt-5 mit tools: [{ type: "web_search" }] verwendet, um reale Web-Suchen durchführen zu können.
+Web Search braucht länger, um eine Antwort zu liefern, da die KI zusätzlich das Web durchsucht.
+Der Aufruf über die Trainingsdaten ist noch implementiert, aber auskommentiert, da der API Key Web Search standardmäßig nicht unterstützt.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Voraussetzungen
 
-To learn more about Next.js, take a look at the following resources:
+- .env Datei mit richtige Openai API Key
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Installation & Setup
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- npm install
+- npm run dev
+- http://localhost:3000

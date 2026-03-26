@@ -5,7 +5,6 @@ export default function PromptForm() {
 	const [prompt, setPrompt] = useState("");
 	const [result, setResult] = useState("");
 	const [loading, setLoading] = useState(false);
-	const [searchingWeb, setSearchWeb] = useState(false);
 	const [error, setError] = useState(null);
 
 	const handleSubmit = async (e) => {
@@ -55,7 +54,7 @@ export default function PromptForm() {
 				</button>
 			</form>
 
-			{loading && <p className="mt-2 font-bold animate-pulse">Searching web...</p>}
+			{loading && <p className="mt-2 font-bold animate-pulse">Searching web, it can take a few minutes...</p>}
 			{error && <p className="text-red-500 mt-2">{error}</p>}
 
 			{result && (
